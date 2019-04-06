@@ -1,43 +1,69 @@
-function setup(){
-  createCanvas(1000,600);
-  background("100", "100", "100")
+let level;
+let home_image;
+let one,two,three,four,five,six,seven,eight,nine;
+let lock;
 
+function setup(){
+  createCanvas(1250,700);
+  home_image = loadImage('assets/home_image.png');
+  level = loadImage('assets/level.png');
+  one = loadImage('assets/levels/one.png');
+  two = loadImage('assets/levels/two.png');
+  three = loadImage('assets/levels/three.png');
+  four = loadImage('assets/levels/four.png');
+  five = loadImage('assets/levels/five.png');
+  six = loadImage('assets/levels/six.png');
+  seven = loadImage('assets/levels/seven.png');
+  eight = loadImage('assets/levels/eight.png');
+  nine = loadImage('assets/levels/nine.png');
+  lock = loadImage('assets/lockboi.png');
 }
 
-
-let value = 0
 function draw() {
-  textSize(24);
-  text('Level', 130, 30);
+  image(home_image, 0, 0, home_image.width / 1.5, home_image.height / 1.5);
+
+
+  fill(0);
+  square(447, 152, 76, 20, 20, 20, 20);
+  image(one, 455, 150);
+
+  square(597, 152, 76, 20, 20, 20, 20);
+  image(two, 600, 150);
+  image(lock, 635, 190, lock.width/2, lock.height/2);
+
+  square(747, 152, 76, 20, 20, 20, 20);
+  image(three, 750, 150);
+  image(lock, 785, 190, lock.width/2, lock.height/2);
+
+  square(447, 302, 76, 20, 20, 20, 20);
+  image(four, 450, 302);
+  image(lock, 485, 340, lock.width/2, lock.height/2);
+
+  square(597, 302, 76, 20, 20, 20, 20);
+  image(five, 600, 300);
+  image(lock, 635, 340, lock.width/2, lock.height/2);
+
+  square(747, 302, 76, 20, 20, 20, 20);
+  image(six, 750, 300);
+  image(lock, 785, 340, lock.width/2, lock.height/2);
+
+  square(447, 452, 76, 20, 20, 20, 20);
+  image(seven, 450,450);
+  image(lock, 485, 490, lock.width/2, lock.height/2);
+
+  square(597, 452, 76, 20, 20, 20, 20);
+  image(eight, 600, 448);
+  image(lock, 635, 490, lock.width/2, lock.height/2);
+
+  square(747, 452, 76, 20, 20, 20, 20);
+  image(nine, 750, 450);
+  image(lock, 785, 490, lock.width/2, lock.height/2);
+
+
+  image(level, 580, 20);
   textSize(32);
 
-  fill(value);
-  square(30, 30, 55)
-  square(30, 130, 55)
-  square(30, 230, 55)
-  square(230, 30, 55)
-  square(230, 130, 55)
-  square(230, 230, 55)
-  square(130, 30, 55)
-  square(130, 130, 55)
-  square(130, 230, 55)
-  fill(255, 0, 0);
-  text('1', 50, 70);
-  text('4', 50, 170);
-  text('7', 50, 270);
-  text('2', 150, 70);
-  text('5', 150, 170);
-  text('8', 150, 270);
-  text('3', 250, 70);
-  text('6', 250, 170);
-  text('9', 250, 270);  
-  
-}
-
-function mouseClicked() {
-  if (value === 0) {
-    value = 255;
-  } else {
-    value = 0;
+  if(mouseIsPressed){
+    window.location.assign("game.html");
   }
 }

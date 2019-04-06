@@ -16,13 +16,13 @@ function setup(){
   createCanvas(1250,700);
 
   // Load the images to use
-  house = loadImage('assets/house.png');
-  power_plant = loadImage('assets/coal_power_plant.png');
-  sad_house = loadImage('assets/house_sad.png');
-  happy_coffee = loadImage('assets/coffee-happy.png');
-  sad_coffee = loadImage('assets/coffee-sad.png');
-  happy_market = loadImage('assets/market.png');
-  sad_market = loadImage('assets/market-sad.png');
+  house = loadImage('assets/buildings/house.png');
+  power_plant = loadImage('assets/buildings/coal_power_plant.png');
+  sad_house = loadImage('assets/buildings/house_sad.png');
+  happy_coffee = loadImage('assets/buildings/coffee-happy.png');
+  sad_coffee = loadImage('assets/buildings/coffee-sad.png');
+  happy_market = loadImage('assets/buildings/market.png');
+  sad_market = loadImage('assets/buildings/market-sad.png');
 
   // Populate the coordinates of the houses
   for (i = 80; i <= 160; i+=80) {
