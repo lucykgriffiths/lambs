@@ -1,14 +1,27 @@
-// let house; 
+let house;
+let power_plant;
+
+const HOUSES = [];
 
 function setup(){
   createCanvas(1000,600);
+  house = loadImage('assets/house.png');
+  power_plant = loadImage('assets/coal_power_plant.png');
+  for (i = 80; i <= 160; i+=80) {
+    for (j = 150; j<= 300; j+=75) {
+      HOUSES.push([i, j]);
+    }
+  }
+  for (i = 600; i <= 800; i+=100) {
+    for (j = 400; j<= 500; j+=100) {
+      HOUSES.push([i, j]);
+    }
+  }
+  console.log(HOUSES);
 }
 
 function draw() {
   background("64", "132", "64");
-  // Load assets
-  // house = loadImage('assets/house.jpg');
-  // Draw
   drawRiver();
   drawHouses();
   drawCoalMine();
@@ -16,7 +29,6 @@ function draw() {
 }
 
 function drawRiver(){
-  // fill("0", "0", "200");
   stroke(0, 0, 200);
   noFill();
   bezier(30, 80, 600, 250, 400, 80, 800, 100);
@@ -24,30 +36,13 @@ function drawRiver(){
 }
 
 function drawHouses(){
-  // image(house, 0,0);
-  // image(house, 0, 0, house.width, house.height);
-  fill(134, 134, 134);
-  noStroke();
-  // v1
-  square(80, 150, 50);
-  square(80, 225, 50);
-  square(80, 300, 50);
-  square(160, 150, 50);
-  square(160, 225, 50);
-  square(160, 300, 50);
-  // v2
-  square(600, 500, 50);
-  square(700, 500, 50);
-  square(800, 500, 50);
-  square(600, 400, 50);
-  square(700, 400, 50);
-  square(800, 400, 50);
+  for (i = 0; i < HOUSES.length; i++){
+    image(house, HOUSES[i][0], HOUSES[i][1], house.width/5, house.height/5);
+  }
 }
 
 function drawCoalMine(){
-  stroke(0,0,0);
-  fill(0,0,0);
-  rect(300, 300, 200, 100);
+  image(power_plant, 300, 300, power_plant.width/1.5, power_plant.height/1.5);
 }
 
 function drawWindFarmLocation(){

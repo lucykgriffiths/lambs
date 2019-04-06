@@ -6,9 +6,9 @@ var home_start;
 
 function setup(){
   createCanvas(1250,700);
-  home_image = loadImage('../assets/home_image.png');
-  logo_image = loadImage('../assets/karma_logo.png');
-  home_start = loadImage("../assets/home_start.png");
+  home_image = loadImage('assets/home_image.png');
+  logo_image = loadImage('assets/karma_logo.png');
+  home_start = loadImage("assets/home_start.png");
 }
 
 function doSomething(){
@@ -22,6 +22,7 @@ function draw() {
   image(home_start, 90, 580);
 
   if(mouseIsPressed){
-    console.log("HI");
+    // console.log("HI");
+    window.location.assign("game.html");
   }
 }
