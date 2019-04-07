@@ -11,6 +11,8 @@ function draw() {
   image(instructions, 0, 0, instructions.width / 1.6, instructions.height / 1.6);
 
   if(mouseIsPressed){
-    window.location.assign("windTurbine.html");
+    if(mouseX >= 1085 && mouseX <=1240 && mouseY >= 640 && mouseY <= 695){
+      window.location.assign("index.html");
+    }
   }
 }

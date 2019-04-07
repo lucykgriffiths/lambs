@@ -3,6 +3,8 @@ let fifty,sixty,seventy,eighty,ninety,hundred;
 let start_time;
 
 let turbine, motor, steel, screw, tool, wire, money, home, info
+let level_info;
+let display_level_info = true;
 
 //Home screen
 
@@ -29,14 +31,35 @@ function setup(){
   home = loadImage('assets/icons/houseeee.png');
   info = loadImage('assets/icons/information.png');
 
-  start_time = Date.now();
+  level_info = loadImage('assets/info.png');
 }
 
 function draw() {
   image(background_image, 0, 0, background_image.width / 1.5, background_image.height / 1.5);
   drawIcons();
-  drawTimebar();
+
+  if(display_level_info){
+    image(level_info, 300, 100, level_info.width/2, level_info.height/2);
+    drawTimebar();
+  } else {
+    drawTimebar();
+  }
+
+  if (mouseIsPressed){
+    if (display_level_info){
+      display_level_info = false;
+      start_time = Date.now();
+    } else if (mouseX >= 1150 && mouseX <= 1150 + (turbine.width/2.2)){
+      if (mouseY >= 20 && mouseY <= 20 + (turbine.height/2.2)) {
+        window.location.assign("index.html");
+      }
+    }
+  }
 }
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
 
 function drawIcons(){
   image(turbine, 200, 585, turbine.width/2.2, turbine.height/2.2);
@@ -46,7 +69,8 @@ function drawIcons(){
   image(tool, 800, 585, turbine.width/2.2, turbine.height/2.2);
   image(wire, 950, 585, turbine.width/2.2, turbine.height/2.2);
 
-  
+  image(home, 1150, 20, turbine.width/2.2, turbine.height/2.2);
+  image(info, 1150, 120, turbine.width/2.2, turbine.height/2.2);
 }
 
 function drawTimebar(){
@@ -67,7 +91,10 @@ function drawTimebar(){
     case time_diff < 25000:
       image(sixty, 10, 10, fifty.width/1.6, fifty.height/1.6);
       break;
-    default:
+    case time_diff < 30000:
       image(fifty, 10, 10, fifty.width/1.6, fifty.height/1.6);
+      break;
+    default:
+      image(hundred, 10, 10, fifty.width/1.6, fifty.height/1.6);
   }
 }

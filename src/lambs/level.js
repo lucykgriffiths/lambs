@@ -64,6 +64,6 @@ function draw() {
   textSize(32);
 
   if(mouseIsPressed){
-    window.location.assign("instructions.html");
+    window.location.assign("windTurbine.html");
   }
 }
