@@ -64,6 +64,6 @@ function draw() {
   textSize(32);
 
   if(mouseIsPressed){
-    window.location.assign("game.html");
+    window.location.assign("instructions.html");
   }
 }
